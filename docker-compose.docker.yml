@@ -5,4 +5,4 @@ services:
     environment:
       - JEKYLL_ENV=docker
     ports:
-      - 9100:4000
+      - 9100:4001
