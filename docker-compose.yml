@@ -13,7 +13,7 @@ services:
     labels:
       caddy: chrisrees.dev
       caddy.reverse_proxy: "{{upstreams 4001}}"
-      caddy.tls.dns: "cloudflare {env.CLOUDFLARE_API_KEY}"
+      caddy.import: "cloudflare-tls"
 
 networks:
   caddy:
