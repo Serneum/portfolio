@@ -5,4 +5,15 @@ services:
     environment:
       - JEKYLL_ENV=docker
     ports:
-      - 9100:4001
+      - 9100:4000
+    networks:
+      - caddy
+    labels:
+      caddy: chrisrees.dev
+      caddy.reverse_proxy: "{{upstreams 4000}}"
+      caddy.import: "cloudflare-tls"
+
+networks:
+  caddy:
+    external:
+      name: caddy_default

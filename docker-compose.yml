@@ -3,19 +3,8 @@ version: '3.4'
 services:
   jekyll:
     image: jekyll/jekyll:latest
-    command: jekyll serve --watch --force_polling --verbose --host 0.0.0.0 --port 4001
+    command: jekyll serve --watch --force_polling --verbose --host 0.0.0.0
     volumes:
       - .:/srv/jekyll
     ports:
-      - 4001:4001
-    networks:
-      - caddy
-    labels:
-      caddy: chrisrees.dev
-      caddy.reverse_proxy: "{{upstreams 4001}}"
-      caddy.import: "cloudflare-tls"
-
-networks:
-  caddy:
-    external:
-      name: caddy_default
+      - 4001:4000
